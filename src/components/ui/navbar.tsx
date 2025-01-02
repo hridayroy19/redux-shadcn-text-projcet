@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./button";
+import { ModeToggle } from "./mode-toggle";
 
 const Navbar = () => {
     return (
@@ -11,6 +12,9 @@ const Navbar = () => {
                    <Link to="/"> <Button className=" bg-blue-400">Home</Button></Link>
                    <Link to="/about"><Button className=" bg-blue-400">About</Button></Link>
                     <Button className=" bg-blue-400">Login</Button>
+                </div>
+                <div>
+                  <ModeToggle/>
                 </div>
               </div>
             </div>

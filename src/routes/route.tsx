@@ -1,5 +1,5 @@
 import App from "@/App";
-import About from "@/pages/about";
+import Counter from "@/pages/about";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
       children:[
         {
             path:"/about",
-            element:<About/>
+            element:<Counter/>
         }
       ]
     },

@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className=" flex justify-center items-center gap-4 font-serif text-xl">
                    <Link to="/"> <Button className=" bg-blue-400">Home</Button></Link>
                    <Link to="/task"> <Button className=" bg-blue-400"> Task</Button></Link>
-                   <Link to="/about"><Button className=" bg-blue-400">About</Button></Link>
+                   <Link to="/about"><Button className=" bg-blue-400">Count</Button></Link>
                   
                 </div>
                 <div>

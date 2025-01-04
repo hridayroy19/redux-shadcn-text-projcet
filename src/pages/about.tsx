@@ -15,10 +15,10 @@ const Counter = () => {
   };
 
   return (
-    <div className=" w-full mx-auto justify-center flex">
+    <div className=" w-full mt-9 mx-auto justify-center flex">
       <div>
         <Button onClick={() => handeleIncrement(1)}> increment</Button>
-        <Button onClick={() => handeleIncrement(5)}> increment 5 </Button>
+        <Button className=" ml-9" onClick={() => handeleIncrement(5)}> increment 5 </Button>
         <div className=" mt-2 mb-2 ml-9 text-xl"> {count} </div>
         <Button onClick={handeleDecrement}> decrement</Button>
       </div>

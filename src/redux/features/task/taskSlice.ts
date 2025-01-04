@@ -1,44 +1,45 @@
 import { RootState } from './../../store';
 import { ITask } from "@/type";
-import { createSlice } from "@reduxjs/toolkit";
-
-
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
 
 interface InitialState {
     tasks: ITask[];
 }
 
 const initialState: InitialState = {
-    tasks: [
-        {
-            id: "1245",
-            title: "initial fonend",
-            description: "crat hole page routing",
-            dueDate: "2025-10-05",
-            isCompleted: false,
-            priority: "High"
-        },
-        {
-            id: "12222",
-            title: "initial Backend",
-            description: "crat hole page routing",
-            dueDate: "2026-10-05",
-            isCompleted: false,
-            priority: "Medium"
-        }
-        
-    ]
+    tasks: []
 }
 
 export const taskSlice = createSlice({
     name: "task",
     initialState,
-    reducers: {}
+    reducers: {
+        addTask :(state, action:PayloadAction<ITask>) =>{
+
+         const id = uuidv4();
+         const taskData  = {
+            ...action.payload,
+            id,
+            isCompleted:false
+         }
+            state.tasks.push(taskData)
+        },
+        toggleState:(state , action:PayloadAction<string> ) =>{
+          
+            state.tasks.forEach((task)=> task.id == action.payload ? (task.isCompleted = ! task.isCompleted):task)
+        },
+        deletTask: (state , action:PayloadAction<string>)=>{
+            state.tasks = state.tasks.filter((task)=> task.id !== action.payload)
+        }
+    }
 })
 
 
 export const selectTask = (state:RootState) =>{
     return state.todo.tasks
 }
+
+export const {addTask,toggleState, deletTask } = taskSlice.actions
 
 export default taskSlice.reducer

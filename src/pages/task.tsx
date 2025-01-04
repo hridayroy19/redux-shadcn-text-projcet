@@ -1,14 +1,24 @@
+import { AddButton } from "@/component/tasksComponents/addButton";
 import TaskCard from "@/component/tasksComponents/taskCard";
+import { selectTask } from "@/redux/features/task/taskSlice";
+import { useAppSelector } from "@/redux/hook";
 
 const Task = () => {
+
+    const tasks = useAppSelector(selectTask)
     return (
     <>
-        <h1 className=" text-center text-2xl text-green-500 mt-10 font-serif cursor-text"> Task </h1>
+        
         <div className=" w-[450px] mx-auto mt-9 ">
-            
-            <TaskCard/>
-            <TaskCard/>
-            <TaskCard/>
+        <div className="  mt-10 mb-4 flex items-center justify-between">
+        <h1 className="  text-2xl text-green-500 font-serif cursor-text"> Task </h1>
+        <AddButton/>
+        </div>
+            {
+                tasks?.map((task)=>(
+                    <TaskCard task={task} key={task?.id}/>
+                ))
+            }
         </div></>
     );
 };

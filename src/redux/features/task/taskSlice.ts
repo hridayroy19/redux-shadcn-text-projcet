@@ -25,15 +25,8 @@ const initialState: InitialState = {
             dueDate: "2026-10-05",
             isCompleted: false,
             priority: "Medium"
-        },
-        {
-            id: "144444",
-            title: "initial projcet",
-            description: "crat hole page routing",
-            dueDate: "2026-10-05",
-            isCompleted: false,
-            priority: "Low"
         }
+        
     ]
 }
 

@@ -1,13 +1,24 @@
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
+import { ITask } from "@/type";
 import { Trash2 } from "lucide-react";
 
-const TaskCard = () => {
+interface Iprops {
+    task:ITask
+}
+
+const TaskCard = ({task}:Iprops) => {
   return (
     <div className=" border px-5 py-3 rounded-md">
       <div className="flex justify-between items-center">
         <div className=" flex gap-3 items-center">
-          <div className=" size-3 rounded-full bg-red-700 "></div>
-          <h1> Task Title</h1>
+          <div className= {cn(" size-3 rounded-full",{
+            "bg-green-500":task.priority === "Low",
+            "bg-orange-500":task.priority === "Medium",
+            "bg-blue-500":task.priority === "High"
+
+          })}></div>
+          <h1> {task?.title}</h1>
         </div>
         <div className=" flex gap-3 items-center">
             <button className=" p-0 text-red-600">
@@ -16,7 +27,7 @@ const TaskCard = () => {
             <Checkbox/>
         </div>
       </div>
-      <h3 className=" mt-4">Task Description</h3>
+      <h3 className=" mt-4"> {task.description} </h3>
     </div>
   );
 };

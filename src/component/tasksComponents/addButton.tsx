@@ -45,7 +45,7 @@ export function AddButton() {
       <DialogTrigger asChild>
         <Button>Add Task</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-gray-200">
+      <DialogContent className="sm:max-w-[425px] ">
         <Description className="sr-only"> Task filep </Description>
         <DialogHeader>
           <DialogTitle>Add Task</DialogTitle>

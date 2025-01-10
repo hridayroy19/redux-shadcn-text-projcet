@@ -29,19 +29,23 @@ import { useAppDispatch } from "@/redux/hook";
 import { Description } from "@radix-ui/react-dialog";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export function AddButton() {
+  const [ open , setOpen] = useState(false)
   const form = useForm();
  const dispatch = useAppDispatch()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onSubmit = (data: any) => {
     console.log(data);
     dispatch(addTask(data))
+    setOpen(false);
+    form.reset();
   };
 
   return (
-    <Dialog >
+    <Dialog open={open} onOpenChange={setOpen} >
       <DialogTrigger asChild>
         <Button>Add Task</Button>
       </DialogTrigger>
